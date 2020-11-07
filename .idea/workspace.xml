@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b26d680f-b7da-49bb-a2f5-514ef04da20a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/authController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/contactsController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/contactsController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/accounts.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/accounts.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/contact.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/pg-data/base/12376/pg_internal.init" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/pg-data/base/16384/pg_internal.init" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/pg-data/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/docker/data/pg-data/global/pg_control" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/pg-data/global/pg_internal.init" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/pg-data/pg_stat/db_0.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/pg-data/pg_stat/db_12376.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/pg-data/pg_stat/db_16384.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/data/pg-data/pg_stat/global.stat" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +29,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JSON" />
@@ -45,7 +47,16 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build go-contacts">
+    <configuration name="go build go-contacts" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go-contacts" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="go-contacts" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build golang-book/go-contacts" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-contacts" />
       <working_directory value="$PROJECT_DIR$" />
@@ -57,6 +68,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build go-contacts" />
         <item itemvalue="Go Build.go build golang-book/go-contacts" />
       </list>
     </recent_temporary>
@@ -70,6 +82,14 @@
       <option name="presentableId" value="Default" />
       <updated>1602017750721</updated>
     </task>
+    <task id="LOCAL-00001" summary="fix imports">
+      <created>1604764704816</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604764704816</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -79,6 +99,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="fix imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix imports" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -96,10 +118,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="430" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1602157686585" />
-    <state x="268" y="34" key="CommitChangelistDialog2" timestamp="1602018095663">
+    <state x="268" y="34" key="CommitChangelistDialog2" timestamp="1604764704625">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="268" y="34" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1602018095663" />
+    <state x="268" y="34" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1604764704625" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1604347730534">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -144,6 +166,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1604764345100" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1604764708122">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1604764708122" />
     <state x="458" y="262" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1604344016032">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
