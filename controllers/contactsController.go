@@ -2,14 +2,15 @@ package controllers
 
 import (
 	"encoding/json"
+	"net/http"
+
 	"go-contacts/models"
 	u "go-contacts/utils"
-	"net/http"
 )
 
 var CreateContact = func(w http.ResponseWriter, r *http.Request) {
 
-	user := r.Context().Value("user").(uint) //Получение идентификатора пользователя, отправившего запрос
+	user := r.Context().Value("user").(uint) // Получение идентификатора пользователя, отправившего запрос
 	contact := &models.Contact{}
 
 	err := json.NewDecoder(r.Body).Decode(contact)
@@ -32,7 +33,7 @@ type ContactID struct {
 
 var UpdateContact = func(w http.ResponseWriter, r *http.Request) {
 
-	userID := r.Context().Value("user").(uint) //Получение идентификатора пользователя, отправившего запрос
+	userID := r.Context().Value("user").(uint) // Получение идентификатора пользователя, отправившего запрос
 
 	var contact ContactID
 	err := json.NewDecoder(r.Body).Decode(&contact)

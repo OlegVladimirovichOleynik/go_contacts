@@ -16,6 +16,7 @@ func main() {
 	router := mux.NewRouter() // функция для определения маршрутов от библиотеки gorilla
 	// метод HandleFunc сопостовляет маршрут с определенным обработчикоом
 	router.HandleFunc("/api/user/new", controllers.CreateAccount).Methods("POST")        // отправляет на обработчик создания аккаунта
+	router.HandleFunc("/api/user/edit", controllers.EditAccount).Methods("PUT")          // отправляет на обработчик создания аккаунта
 	router.HandleFunc("/api/user/login", controllers.Authenticate).Methods("POST")       // отправляет на обработчик авторизации
 	router.HandleFunc("/api/contacts/new", controllers.CreateContact).Methods("POST")    // отправляет на обработчик создания контакта
 	router.HandleFunc("/api/contacts/update", controllers.UpdateContact).Methods("POST") // отправляет на обработчик обновления контакта
