@@ -11,5 +11,10 @@ services:
       - ./docker/data/pg-data:/pg-data
     ports:
       - "127.0.0.1:5432:5432"
-
-
+  rmq:
+    image: rabbitmq:3-management
+    volumes:
+      - ./docker/data/rmq-data:/var/lib/rabbitmq
+    ports:
+      - "127.0.0.1:15672:15672"
+      - "127.0.0.1:5672:5672"
