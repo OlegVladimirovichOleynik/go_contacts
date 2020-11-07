@@ -3,7 +3,7 @@ package models
 import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/jinzhu/gorm"
-	u "golang-book/go-contacts/utils"
+	u "go-contacts/utils"
 	"golang.org/x/crypto/bcrypt"
 	"os"
 	"strings"
@@ -27,11 +27,11 @@ type Account struct {
 
 //Проверить входящие данные пользователя ...
 func (account *Account) Validate() (map[string]interface{}, bool) {
-//если совпадает email то выдает ошибку
+	//если совпадает email то выдает ошибку
 	if !strings.Contains(account.Email, "@") {
 		return u.Message(false, "Email address is required"), false
 	}
-//если пароль меньше 6и символов выдает ошибку
+	//если пароль меньше 6и символов выдает ошибку
 	if len(account.Password) < 6 {
 		return u.Message(false, "Password is required"), false
 	}
@@ -82,7 +82,7 @@ func (account *Account) Create() map[string]interface{} {
 func Login(email, password string) map[string]interface{} {
 
 	account := &Account{}
-	err := GetDB().Table("accounts").Where("email = ?", email).First(account).Error// сравнивает входные данные с базой и выдает результат
+	err := GetDB().Table("accounts").Where("email = ?", email).First(account).Error // сравнивает входные данные с базой и выдает результат
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return u.Message(false, "Email address not found")

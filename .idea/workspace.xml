@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b26d680f-b7da-49bb-a2f5-514ef04da20a" name="Default Changelist" comment="" />
+    <list default="true" id="b26d680f-b7da-49bb-a2f5-514ef04da20a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/authController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/contactsController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/contactsController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/accounts.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/accounts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/contact.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,7 +18,7 @@
   </component>
   <component name="GOROOT" path="$PROJECT_DIR$/../go1.14" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1iWK8iLNfyQd6f8k0OK9Odw3L0W" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -29,7 +38,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="go.sdk" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -65,6 +74,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -126,18 +140,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="243" height="457" key="HiddenNamespacesPopup/0.0.1440.900@0.0.1440.900" timestamp="1602019407265" />
-    <state x="221" y="89" key="SettingsEditor" timestamp="1604764097321">
+    <state x="221" y="89" key="SettingsEditor" timestamp="1604764345100">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1604764097321" />
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1604764345100" />
     <state x="458" y="262" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1604344016032">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="262" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.0.1440.900@0.0.1440.900" timestamp="1604344016032" />
-    <state x="418" y="82" width="604" height="735" key="find.popup" timestamp="1602605163560">
+    <state x="418" y="82" width="604" height="735" key="find.popup" timestamp="1604764638643">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="418" y="82" width="604" height="735" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1602605163560" />
+    <state x="418" y="82" width="604" height="735" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1604764638643" />
     <state x="450" y="369" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602019416659">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

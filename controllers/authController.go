@@ -2,14 +2,14 @@ package controllers
 
 import (
 	"encoding/json"
-	"golang-book/go-contacts/models"
-	u "golang-book/go-contacts/utils"
+	"go-contacts/models"
+	u "go-contacts/utils"
 	"net/http"
 )
 
 var CreateAccount = func(w http.ResponseWriter, r *http.Request) {
 
-	account := &models.Account{} //присваиваем переменной account данные из модели account
+	account := &models.Account{}                   //присваиваем переменной account данные из модели account
 	err := json.NewDecoder(r.Body).Decode(account) //декодирует тело запроса в struct и завершается неудачно в случае ошибки
 	//если ошибка не пустая то выдаем ее
 	if err != nil {
@@ -31,5 +31,5 @@ var Authenticate = func(w http.ResponseWriter, r *http.Request) {
 	}
 
 	resp := models.Login(account.Email, account.Password) // вызывает функцию с входными параметрами login и password
-	u.Respond(w, resp)//выводит результат в json
+	u.Respond(w, resp)                                    //выводит результат в json
 }
