@@ -1,12 +1,15 @@
 package models
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"github.com/jinzhu/gorm"
-	u "go-contacts/utils"
-	"golang.org/x/crypto/bcrypt"
+	"log"
 	"os"
 	"strings"
+
+	"github.com/dgrijalva/jwt-go"
+	"github.com/jinzhu/gorm"
+	"golang.org/x/crypto/bcrypt"
+
+	u "go-contacts/utils"
 )
 
 /*
@@ -17,7 +20,7 @@ type Token struct {
 	jwt.StandardClaims
 }
 
-//структура для учётной записи пользователя
+// структура для учётной записи пользователя
 type Account struct {
 	gorm.Model
 	Email    string `json:"email"`
@@ -25,21 +28,26 @@ type Account struct {
 	Token    string `json:"token";sql:"-"`
 }
 
-//Проверить входящие данные пользователя ...
-func (account *Account) Validate() (map[string]interface{}, bool) {
-	//если совпадает email то выдает ошибку
+// Проверить входящие данные пользователя ...
+func (account *Account) Validate(isUpdate bool) (map[string]interface{}, bool) {
+	// если совпадает email то выдает ошибку
 	if !strings.Contains(account.Email, "@") {
 		return u.Message(false, "Email address is required"), false
 	}
-	//если пароль меньше 6и символов выдает ошибку
+
+	if isUpdate {
+		return u.Message(false, "Requirement passed"), true
+	}
+
+	// если пароль меньше 6и символов выдает ошибку
 	if len(account.Password) < 6 {
 		return u.Message(false, "Password is required"), false
 	}
 
-	//Email должен быть уникальным
+	// Email должен быть уникальным
 	temp := &Account{}
 
-	//проверка на наличие ошибок и дубликатов электронных писем
+	// проверка на наличие ошибок и дубликатов электронных писем
 	err := GetDB().Table("accounts").Where("email = ?", account.Email).First(temp).Error
 	if err != nil && err != gorm.ErrRecordNotFound {
 		return u.Message(false, "Connection error. Please retry"), false
@@ -53,7 +61,7 @@ func (account *Account) Validate() (map[string]interface{}, bool) {
 
 func (account *Account) Create() map[string]interface{} {
 
-	if resp, ok := account.Validate(); !ok {
+	if resp, ok := account.Validate(false); !ok {
 		return resp
 	}
 
@@ -66,13 +74,13 @@ func (account *Account) Create() map[string]interface{} {
 		return u.Message(false, "Failed to create account, connection error.")
 	}
 
-	//Создать новый токен JWT для новой зарегистрированной учётной записи
+	// Создать новый токен JWT для новой зарегистрированной учётной записи
 	tk := &Token{UserId: account.ID}
 	token := jwt.NewWithClaims(jwt.GetSigningMethod("HS256"), tk)
 	tokenString, _ := token.SignedString([]byte(os.Getenv("token_password")))
 	account.Token = tokenString
 
-	account.Password = "" //удалить пароль
+	account.Password = "" // удалить пароль
 
 	response := u.Message(true, "Account has been created")
 	response["account"] = account
@@ -91,13 +99,13 @@ func Login(email, password string) map[string]interface{} {
 	}
 
 	err = bcrypt.CompareHashAndPassword([]byte(account.Password), []byte(password))
-	if err != nil && err == bcrypt.ErrMismatchedHashAndPassword { //Пароль не совпадает!!
+	if err != nil && err == bcrypt.ErrMismatchedHashAndPassword { // Пароль не совпадает!!
 		return u.Message(false, "Invalid login credentials. Please try again")
 	}
-	//Работает! Войти в систему
+	// Работает! Войти в систему
 	account.Password = ""
 
-	//Создать токен JWT
+	// Создать токен JWT
 	tk := &Token{UserId: account.ID}
 	token := jwt.NewWithClaims(jwt.GetSigningMethod("HS256"), tk)
 	tokenString, _ := token.SignedString([]byte(os.Getenv("token_password")))
@@ -112,10 +120,23 @@ func GetUser(u uint) *Account {
 
 	acc := &Account{}
 	GetDB().Table("accounts").Where("id = ?", u).First(acc)
-	if acc.Email == "" { //Пользователь не найден!
+	if acc.Email == "" { // Пользователь не найден!
 		return nil
 	}
 
 	acc.Password = ""
 	return acc
+}
+
+func (user *Account) Update(email string) map[string]interface{} {
+	log.Println("call update")
+	if resp, ok := user.Validate(true); !ok {
+		return resp
+	}
+	log.Println("validate")
+
+	GetDB().Model(user).Updates(Account{Email: email})
+	resp := u.Message(true, "success")
+	resp["user"] = user
+	return resp
 }
